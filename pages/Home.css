@@ -1,0 +1,126 @@
+.home {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.market-status {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.market-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a0a0a0;
+  font-size: 0.875rem;
+}
+
+.market-indicators {
+  display: flex;
+  gap: 1rem;
+}
+
+.market-open {
+  padding: 0.25rem 0.75rem;
+  background: #26a69a1a;
+  color: #26a69a;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.home-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.grid-item {
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calendar-section {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.news-section {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.opportunities-section {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.chat-section {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.home-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-grid h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .calendar-section,
+  .news-section,
+  .opportunities-section,
+  .chat-section {
+    grid-column: 1;
+  }
+
+  .calendar-section { grid-row: 1; }
+  .news-section { grid-row: 2; }
+  .opportunities-section { grid-row: 3; }
+  .chat-section { grid-row: 4; }
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .market-status {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+} 

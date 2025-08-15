@@ -1,0 +1,362 @@
+.workstation {
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.workstation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.symbol-selector select {
+  padding: 0.75rem;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.symbol-selector select:focus {
+  outline: none;
+  border-color: #4a4a4a;
+}
+
+.market-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.current-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.price-change {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.price-change.positive {
+  background: #26a69a33;
+  color: #26a69a;
+}
+
+.price-change.negative {
+  background: #ef535033;
+  color: #ef5350;
+}
+
+.volume {
+  color: #a0a0a0;
+  font-size: 0.875rem;
+}
+
+.tab-selector {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  background: #2a2a2a;
+  border: none;
+  border-radius: 4px;
+  color: #a0a0a0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: #3a3a3a;
+  color: #ffffff;
+}
+
+.tab-btn.active {
+  background: #26a69a;
+  color: #ffffff;
+}
+
+.workstation-content {
+  flex: 1;
+  min-height: 0;
+}
+
+.workstation-content.trading {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 1rem;
+}
+
+.workstation-content.insights,
+.workstation-content.sentiment {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.main-chart {
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.order-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.order-book-section,
+.order-form-section {
+  background: #1e1e1e;
+  border-radius: 8px;
+  min-height: 0;
+}
+
+.news-section {
+  height: 400px;
+  min-height: 400px;
+}
+
+@media (max-width: 1400px) {
+  .workstation-content.trading {
+    grid-template-columns: 1fr;
+  }
+
+  .side-panel {
+    grid-template-rows: auto;
+  }
+
+  .news-section {
+    height: 300px;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .workstation-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .symbol-selector select {
+    width: 100%;
+  }
+
+  .tab-selector {
+    width: 100%;
+  }
+
+  .tab-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.workstation-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  height: calc(100% - 60px);
+}
+
+.trading-chart {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chart-controls .btn {
+  padding: 0.5rem 1rem;
+  background: #2a2a2a;
+  border: none;
+  color: #a0a0a0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chart-controls .btn.active {
+  background: #3a3a3a;
+  color: white;
+}
+
+.trading-chart-container {
+  height: 500px;
+}
+
+.order-panel {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.positions {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.position-card {
+  background: #2a2a2a;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.position-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.position-type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.position-type.long {
+  background: #26a69a33;
+  color: #26a69a;
+}
+
+.position-type.short {
+  background: #ef535033;
+  color: #ef5350;
+}
+
+.position-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  color: #a0a0a0;
+}
+
+.profit {
+  color: #26a69a;
+}
+
+.loss {
+  color: #ef5350;
+}
+
+.sentiment-indicators {
+  padding: 1rem;
+}
+
+.sentiment-gauge {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gauge-label {
+  margin-bottom: 0.5rem;
+  color: #a0a0a0;
+}
+
+.gauge-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #26a69a;
+}
+
+.sentiment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sentiment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #26a69a;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.chart-container {
+  height: 100%;
+  min-height: 400px;
+} 
