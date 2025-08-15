@@ -1,0 +1,116 @@
+.trading-chart {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.symbol-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.symbol-info h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.price {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.change {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.positive {
+  color: #26a69a;
+  background: #26a69a1a;
+}
+
+.negative {
+  color: #ef5350;
+  background: #ef53501a;
+}
+
+.chart-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.chart-controls select {
+  padding: 0.5rem 1rem;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.chart-controls select:hover {
+  border-color: #4a4a4a;
+}
+
+.chart-controls select:focus {
+  outline: none;
+  border-color: #26a69a;
+}
+
+.chart-container {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Styles pour les tooltips du graphique */
+.tv-lightweight-charts {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.tv-lightweight-charts .tooltip {
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .chart-controls {
+    width: 100%;
+  }
+
+  .chart-controls select {
+    flex: 1;
+  }
+} 

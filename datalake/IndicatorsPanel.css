@@ -1,0 +1,79 @@
+.indicators-panel {
+  background: #1E1E1E;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.indicators-panel h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.indicator-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.indicator-group h4 {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #A0A0A0;
+  font-weight: 500;
+}
+
+.indicator-value {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.value.positive { color: #26A69A; }
+.value.negative { color: #EF5350; }
+.value.overbought { color: #EF5350; }
+.value.oversold { color: #26A69A; }
+
+.indicator-gauge {
+  height: 4px;
+  background: #2A2A2A;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.gauge-bar {
+  height: 100%;
+  background: #26A69A;
+  transition: width 0.3s ease;
+}
+
+.indicator-values {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.value-row .label {
+  color: #A0A0A0;
+  font-size: 0.875rem;
+}
+
+.value-row .value {
+  font-size: 0.875rem;
+} 

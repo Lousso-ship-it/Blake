@@ -1,0 +1,150 @@
+.signals-table {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1E1E1E;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.signals-header {
+  padding: 1rem;
+  border-bottom: 1px solid #2A2A2A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  background: #2A2A2A;
+  border: none;
+  border-radius: 4px;
+  color: #A0A0A0;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #3A3A3A;
+  color: #FFFFFF;
+}
+
+.filter-btn.active {
+  background: #26A69A;
+  color: #FFFFFF;
+}
+
+.sort-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sort-controls select {
+  padding: 0.5rem;
+  background: #2A2A2A;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+}
+
+.sort-order {
+  padding: 0.5rem;
+  background: #2A2A2A;
+  border: none;
+  border-radius: 4px;
+  color: #A0A0A0;
+  cursor: pointer;
+}
+
+.signals-content {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 0.75rem;
+  color: #A0A0A0;
+  font-weight: 500;
+  border-bottom: 1px solid #2A2A2A;
+}
+
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #2A2A2A;
+  color: #FFFFFF;
+}
+
+tr:hover {
+  background: #2A2A2A;
+}
+
+.signal-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.signal-badge.buy {
+  background: #26A69A1A;
+  color: #26A69A;
+}
+
+.signal-badge.sell {
+  background: #EF53501A;
+  color: #EF5350;
+}
+
+.strength-bar {
+  position: relative;
+  height: 4px;
+  background: #2A2A2A;
+  border-radius: 2px;
+  width: 100px;
+}
+
+.strength-fill {
+  position: absolute;
+  height: 100%;
+  background: #26A69A;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.strength-bar span {
+  position: absolute;
+  right: -40px;
+  top: -8px;
+  font-size: 0.75rem;
+  color: #A0A0A0;
+}
+
+.indicators-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.indicator-tag {
+  padding: 0.25rem 0.5rem;
+  background: #2A2A2A;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #A0A0A0;
+} 

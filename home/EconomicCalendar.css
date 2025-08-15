@@ -1,0 +1,142 @@
+.calendar-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+}
+
+.calendar-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.calendar-controls button,
+.calendar-controls select {
+  padding: 0.5rem 1rem;
+  background: #2A2A2A;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.calendar-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.event-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: #2A2A2A;
+  border-radius: 4px;
+  border-left: 4px solid;
+}
+
+.event-card.impact-high { border-color: #EF5350; }
+.event-card.impact-medium { border-color: #FFA726; }
+.event-card.impact-low { border-color: #26A69A; }
+
+.event-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.event-time .date {
+  font-size: 0.875rem;
+  color: #A0A0A0;
+}
+
+.event-time .time {
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.event-details {
+  flex: 1;
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+.country-flag {
+  width: 24px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.event-metrics {
+  display: flex;
+  gap: 1rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric .label {
+  font-size: 0.75rem;
+  color: #A0A0A0;
+}
+
+.metric .value {
+  font-size: 0.875rem;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.calendar-container.loading,
+.calendar-container.error {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #A0A0A0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #2A2A2A;
+  border-top-color: #26A69A;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+} 

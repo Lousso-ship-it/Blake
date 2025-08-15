@@ -1,0 +1,129 @@
+.news-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.news-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.news-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+}
+
+.category-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  background: #2A2A2A;
+  border: none;
+  border-radius: 4px;
+  color: #A0A0A0;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background: #3A3A3A;
+  color: #FFFFFF;
+}
+
+.category-btn.active {
+  background: #26A69A;
+  color: #FFFFFF;
+}
+
+.news-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.news-card {
+  padding: 1rem;
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.news-source {
+  font-size: 0.75rem;
+  color: #26A69A;
+  font-weight: 500;
+}
+
+.news-time {
+  font-size: 0.75rem;
+  color: #A0A0A0;
+}
+
+.news-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+  line-height: 1.4;
+}
+
+.news-summary {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: #A0A0A0;
+  line-height: 1.5;
+}
+
+.news-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.news-sentiment {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.news-sentiment.positive { color: #26A69A; }
+.news-sentiment.negative { color: #EF5350; }
+.news-sentiment.neutral { color: #A0A0A0; }
+
+.news-link {
+  color: #26A69A;
+  text-decoration: none;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+}
+
+.news-container.loading,
+.news-container.error {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #A0A0A0;
+} 

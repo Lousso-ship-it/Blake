@@ -1,0 +1,131 @@
+.event-calendar {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* Styles pour react-calendar */
+.react-calendar {
+  width: 100%;
+  background: #2a2a2a;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 1rem;
+}
+
+.react-calendar__navigation button {
+  color: #ffffff;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.react-calendar__navigation button:hover {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+.react-calendar__month-view__weekdays {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: #a0a0a0;
+}
+
+.react-calendar__tile {
+  padding: 0.75rem 0.5rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  position: relative;
+}
+
+.react-calendar__tile:hover {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+.react-calendar__tile--active {
+  background: #26a69a !important;
+  border-radius: 4px;
+}
+
+.event-indicator {
+  display: flex;
+  gap: 2px;
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicator {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+.indicator.high {
+  background: #ef5350;
+}
+
+.indicator.medium {
+  background: #ffb74d;
+}
+
+.indicator.low {
+  background: #26a69a;
+}
+
+.indicator.economic {
+  background: #42a5f5;
+}
+
+.indicator.corporate {
+  background: #ab47bc;
+}
+
+.events-list {
+  margin-top: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 1.5rem;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #2a2a2a;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.event-type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.event-type.economic {
+  background: #42a5f533;
+  color: #42a5f5;
+}
+
+.event-type.corporate {
+  background: #ab47bc33;
+  color: #ab47bc;
+}
+
+.event-title {
+  flex: 1;
+  font-size: 0.875rem;
+} 

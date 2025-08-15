@@ -1,0 +1,169 @@
+.backtest-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.backtest-config {
+  background: #1E1E1E;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.backtest-config h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.config-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.config-item label {
+  color: #A0A0A0;
+  font-size: 0.875rem;
+}
+
+.config-item input {
+  padding: 0.5rem;
+  background: #2A2A2A;
+  border: 1px solid #3A3A3A;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+}
+
+.config-item input:focus {
+  outline: none;
+  border-color: #26A69A;
+}
+
+.run-backtest-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #26A69A;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.run-backtest-btn:hover {
+  background: #2ed1bd;
+}
+
+.run-backtest-btn:disabled {
+  background: #2A2A2A;
+  cursor: not-allowed;
+}
+
+.backtest-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.results-header {
+  background: #1E1E1E;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.metrics-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric .label {
+  color: #A0A0A0;
+  font-size: 0.875rem;
+}
+
+.metric .value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.value.positive { color: #26A69A; }
+.value.negative { color: #EF5350; }
+
+.equity-chart {
+  background: #1E1E1E;
+  border-radius: 8px;
+  padding: 1rem;
+  height: 400px;
+}
+
+.detailed-metrics {
+  background: #1E1E1E;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.metric-card {
+  padding: 1rem;
+  background: #2A2A2A;
+  border-radius: 8px;
+}
+
+.metric-card h4 {
+  margin: 0 0 1rem 0;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.metric-row .label {
+  color: #A0A0A0;
+  font-size: 0.875rem;
+}
+
+.metric-row .value {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .metrics-summary {
+    grid-template-columns: 1fr;
+  }
+} 

@@ -1,0 +1,127 @@
+.finance-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.balance-overview {
+  display: flex;
+  gap: 1rem;
+}
+
+.balance-card {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+.balance-amount {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: #26a69a;
+}
+
+.transaction-form {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  background: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4a4a4a;
+}
+
+.submit-btn {
+  background: #26a69a;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #2bbbad;
+}
+
+.transactions-list {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.transactions-list h3 {
+  margin-bottom: 1rem;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-item.income .transaction-amount {
+  color: #26a69a;
+}
+
+.transaction-item.expense .transaction-amount {
+  color: #ef5350;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.transaction-date {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+}
+
+.transaction-amount {
+  font-weight: 600;
+} 

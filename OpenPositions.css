@@ -1,0 +1,159 @@
+.open-positions {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.open-positions h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.no-positions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0a0;
+  font-size: 0.875rem;
+}
+
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.position-card {
+  background: #2a2a2a;
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.position-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.position-symbol {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.position-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.position-type.long {
+  background: #26a69a1a;
+  color: #26a69a;
+}
+
+.position-type.short {
+  background: #ef53501a;
+  color: #ef5350;
+}
+
+.position-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.detail span:first-child {
+  color: #a0a0a0;
+}
+
+.profit {
+  color: #26a69a;
+}
+
+.loss {
+  color: #ef5350;
+}
+
+.close-position-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #ef53501a;
+  border: 1px solid #ef5350;
+  border-radius: 4px;
+  color: #ef5350;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-position-btn:hover {
+  background: #ef535033;
+}
+
+.close-position-btn:active {
+  transform: translateY(1px);
+}
+
+.error-message {
+  color: #ef5350;
+  padding: 1rem;
+  text-align: center;
+  background: #ef53501a;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #a0a0a0;
+}
+
+/* Scrollbar styles */
+.positions-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.positions-list::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+.positions-list::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 3px;
+}
+
+.positions-list::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+@media (max-width: 768px) {
+  .position-details {
+    grid-template-columns: 1fr;
+  }
+
+  .detail {
+    font-size: 0.8125rem;
+  }
+} 

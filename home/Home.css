@@ -1,0 +1,55 @@
+.home-container {
+  height: 100%;
+  padding: 1rem;
+  background: #141414;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  height: 100%;
+}
+
+.home-section {
+  background: #1E1E1E;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calendar {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.news {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+.opportunities {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.assistant {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+@media (max-width: 1200px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .calendar, .news, .opportunities, .assistant {
+    grid-column: 1 / 2;
+  }
+
+  .calendar { grid-row: 1 / 2; }
+  .news { grid-row: 2 / 3; }
+  .opportunities { grid-row: 3 / 4; }
+  .assistant { grid-row: 4 / 5; }
+} 

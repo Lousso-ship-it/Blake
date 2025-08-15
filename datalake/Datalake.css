@@ -1,0 +1,51 @@
+.datalake-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #141414;
+  padding: 1rem;
+}
+
+.datalake-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.datalake-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.datalake-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  height: calc(100% - 100px);
+}
+
+.data-explorer-section {
+  background: #1E1E1E;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.analysis-section {
+  background: #1E1E1E;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .datalake-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .analysis-section {
+    display: none;
+  }
+} 

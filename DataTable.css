@@ -1,0 +1,38 @@
+.data-table-container {
+  overflow-x: auto;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.data-table th {
+  background: #2a2a2a;
+  color: #ffffff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.data-table td {
+  color: #d1d4dc;
+}
+
+.data-table tbody tr:hover {
+  background: #2a2a2a;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+} 

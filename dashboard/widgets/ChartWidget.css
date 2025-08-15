@@ -1,0 +1,94 @@
+.chart-widget {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+/* Styles pour les tooltips ECharts */
+.echarts-tooltip {
+  background: rgba(30, 30, 30, 0.9) !important;
+  border: 1px solid #404040 !important;
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles pour la légende ECharts */
+.echarts-legend {
+  background: transparent !important;
+  border: none !important;
+}
+
+.echarts-legend-item {
+  color: #A0A0A0 !important;
+}
+
+.echarts-legend-item.active {
+  color: #FFFFFF !important;
+}
+
+/* Styles pour les axes */
+.echarts-axis-line {
+  stroke: #404040 !important;
+}
+
+.echarts-axis-label {
+  fill: #A0A0A0 !important;
+}
+
+.echarts-grid-line {
+  stroke: #2A2A2A !important;
+  stroke-dasharray: 4 4;
+}
+
+/* Styles pour les séries */
+.echarts-series-line {
+  stroke-width: 2px;
+}
+
+.echarts-series-area {
+  opacity: 0.2;
+}
+
+.echarts-series-bar {
+  border-radius: 2px;
+}
+
+.echarts-series-candlestick {
+  stroke-width: 1px;
+}
+
+/* Animation de chargement */
+.chart-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 30, 30, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.chart-loading .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #2A2A2A;
+  border-top-color: #26A69A;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+} 

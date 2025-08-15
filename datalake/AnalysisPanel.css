@@ -1,0 +1,160 @@
+.analysis-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.analysis-panel.empty {
+  justify-content: center;
+  align-items: center;
+  color: #A0A0A0;
+  text-align: center;
+}
+
+.analysis-panel.empty i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.analysis-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+.save-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #26A69A;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+  background: #2ed1bd;
+}
+
+.indicators-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
+.indicator-item {
+  background: #2A2A2A;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator-item:hover {
+  background: #3A3A3A;
+}
+
+.indicator-item.active {
+  background: #3A3A3A;
+}
+
+.indicator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.indicator-name {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.indicator-value {
+  color: #26A69A;
+  font-family: monospace;
+}
+
+.indicator-settings {
+  padding: 1rem;
+  border-top: 1px solid #404040;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.setting-item label {
+  color: #A0A0A0;
+  font-size: 0.875rem;
+}
+
+.setting-item input {
+  width: 80px;
+  padding: 0.25rem 0.5rem;
+  background: #404040;
+  border: 1px solid #505050;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+}
+
+.saved-analyses {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #2A2A2A;
+}
+
+.saved-analyses h4 {
+  margin: 0 0 0.5rem 0;
+  color: #A0A0A0;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.saved-analysis-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: #2A2A2A;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.saved-analysis-item .timestamp {
+  color: #A0A0A0;
+  font-size: 0.875rem;
+}
+
+.load-btn {
+  padding: 0.25rem 0.5rem;
+  background: none;
+  border: 1px solid #404040;
+  border-radius: 4px;
+  color: #A0A0A0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-btn:hover {
+  background: #404040;
+  color: #FFFFFF;
+} 

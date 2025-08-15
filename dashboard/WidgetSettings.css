@@ -1,0 +1,87 @@
+.widget-settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.widget-settings-modal {
+  background: #1E1E1E;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.settings-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.setting-group {
+  margin-bottom: 1rem;
+}
+
+.setting-group:last-child {
+  margin-bottom: 0;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+}
+
+.setting-group input[type="text"],
+.setting-group input[type="number"],
+.setting-group select {
+  width: 100%;
+  padding: 0.5rem;
+  background: #2A2A2A;
+  border: 1px solid #3A3A3A;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+}
+
+.setting-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  background: #2A2A2A;
+  border: 1px solid #3A3A3A;
+  border-radius: 2px;
+}
+
+.modal-footer {
+  padding: 1rem;
+  border-top: 1px solid #2A2A2A;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.save-btn {
+  padding: 0.5rem 1rem;
+  background: #26A69A;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+  background: #2ed1bd;
+} 
