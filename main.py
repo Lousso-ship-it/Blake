@@ -68,11 +68,28 @@ async def login(email: str, password: str):
             detail=str(e)
         )
 
+@app.post("/auth/logout")
+async def logout():
+    try:
+        supabase.auth.sign_out()
+        return {"message": "Logged out successfully"}
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+
 # Routes protégées
 @app.get("/user/profile")
-async def get_profile(current_user = Depends(get_current_user)):
+async def get_profile(current_user=Depends(get_current_user)):
     try:
-        profile = supabase.from_('profiles').select('*').eq('id', current_user.id).single().execute()
+        profile = (
+            supabase.from_("profiles")
+            .select("*")
+            .eq("id", current_user.id)
+            .single()
+            .execute()
+        )
         return profile
     except Exception as e:
         raise HTTPException(
@@ -82,13 +99,13 @@ async def get_profile(current_user = Depends(get_current_user)):
 
 # Routes pour les données de trading
 @app.get("/market/prices/{symbol}")
-async def get_market_prices(symbol: str, current_user = Depends(get_current_user)):
+async def get_market_prices(symbol: str, current_user=Depends(get_current_user)):
     # Implémentation pour récupérer les prix du marché
     pass
 
 @app.get("/market/orderbook/{symbol}")
-async def get_orderbook(symbol: str, current_user = Depends(get_current_user)):
+async def get_orderbook(symbol: str, current_user=Depends(get_current_user)):
     # Implémentation pour récupérer le carnet d'ordres
     pass
 
-# Plus de routes à venir... 
+# Plus de routes à venir...
