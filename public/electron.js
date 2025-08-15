@@ -1,14 +1,12 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-const { createClient } = require('@supabase/supabase-js');
+const { Pool } = require('pg');
 const { WebSocket } = require('ws');
 const ccxt = require('ccxt');
 
-// Configuration Supabase
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Configuration PostgreSQL
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 // Gestionnaire des connexions WebSocket
 class WebSocketManager {
@@ -183,35 +181,16 @@ ipcMain.handle('place-order', async (event, { exchangeId, order }) => {
 // Gestionnaires pour le Datalake
 ipcMain.handle('datalake-search', async (event, { query, filters }) => {
   try {
-    // Construire la requête en fonction des filtres
-    const searchQuery = {
-      text: query,
-      categories: filters.categories,
-      timeRange: filters.timeRange,
-      dataTypes: filters.dataTypes
-    };
-
-    // Rechercher dans Supabase
-    const { data, error } = await supabase
-      .from('datalake_items')
-      .select(`
-        id,
-        type,
-        category,
-        title,
-        description,
-        source,
-        last_updated,
-        metadata
-      `)
-      .textSearch('search_vector', query)
-      .in('category', filters.categories.length ? filters.categories : ['markets', 'economy', 'companies', 'crypto', 'commodities', 'real-estate'])
-      .order('last_updated', { ascending: false });
-
-    if (error) throw error;
-
-    // Formater les suggestions
-    const suggestions = data.slice(0, 5).map(item => ({
+    const categories = filters.categories.length ? filters.categories : ['markets', 'economy', 'companies', 'crypto', 'commodities', 'real-estate'];
+    const { rows } = await pool.query(
+      `SELECT id, type, category, title, description, source, last_updated, metadata
+       FROM datalake_items
+       WHERE search_vector @@ plainto_tsquery($1)
+       AND category = ANY($2)
+       ORDER BY last_updated DESC`,
+      [query, categories]
+    );
+    const suggestions = rows.slice(0, 5).map(item => ({
       id: item.id,
       text: item.title,
       type: getIconForCategory(item.category),
@@ -220,7 +199,7 @@ ipcMain.handle('datalake-search', async (event, { query, filters }) => {
 
     return {
       suggestions,
-      results: data
+      results: rows
     };
   } catch (error) {
     console.error('Erreur recherche datalake:', error);
@@ -231,13 +210,9 @@ ipcMain.handle('datalake-search', async (event, { query, filters }) => {
 ipcMain.handle('datalake-fetch-data', async (event, { id, type }) => {
   try {
     // Récupérer les métadonnées de l'élément
-    const { data: item, error: itemError } = await supabase
-      .from('datalake_items')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    if (itemError) throw itemError;
+    const { rows } = await pool.query('SELECT * FROM datalake_items WHERE id=$1', [id]);
+    const item = rows[0];
+    if (!item) throw new Error('Item not found');
 
     // Récupérer les données en fonction du type
     let timeseriesData;
@@ -331,16 +306,12 @@ const fetchFundamentalData = async (item) => {
 };
 
 const fetchGenericData = async (item) => {
-  // Récupérer les données depuis Supabase
   try {
-    const { data, error } = await supabase
-      .from('datalake_timeseries')
-      .select('*')
-      .eq('item_id', item.id)
-      .order('timestamp', { ascending: true });
-
-    if (error) throw error;
-    return data;
+    const { rows } = await pool.query(
+      'SELECT * FROM datalake_timeseries WHERE item_id=$1 ORDER BY timestamp ASC',
+      [item.id]
+    );
+    return rows;
   } catch (error) {
     console.error('Erreur données génériques:', error);
     throw error;
@@ -471,16 +442,9 @@ ipcMain.handle('fetch-news', async (event, { category, limit = 10 }) => {
 
 ipcMain.handle('fetch-market-opportunities', async (event) => {
   try {
-    // Récupérer les données de marché depuis Supabase
-    const { data: marketData, error } = await supabase
-      .from('market_data')
-      .select('*')
-      .order('timestamp', { ascending: false })
-      .limit(100);
-
-    if (error) throw error;
-
-    // Analyser les opportunités
+    const { rows: marketData } = await pool.query(
+      'SELECT * FROM market_data ORDER BY timestamp DESC LIMIT 100'
+    );
     const opportunities = await analyzeMarketOpportunities(marketData);
     return opportunities;
   } catch (error) {
@@ -603,16 +567,11 @@ function calculateRSI(prices, period) {
 // Gestionnaires IPC pour le Datalake
 ipcMain.handle('fetch-market-data', async (event, { symbol, timeframe, limit }) => {
   try {
-    const { data, error } = await supabase
-      .from('market_data')
-      .select('*')
-      .eq('symbol', symbol)
-      .eq('timeframe', timeframe)
-      .order('timestamp', { ascending: false })
-      .limit(limit);
-
-    if (error) throw error;
-    return data;
+    const { rows } = await pool.query(
+      'SELECT * FROM market_data WHERE symbol=$1 AND timeframe=$2 ORDER BY timestamp DESC LIMIT $3',
+      [symbol, timeframe, limit]
+    );
+    return rows;
   } catch (error) {
     console.error('Erreur fetch market data:', error);
     throw error;
@@ -646,20 +605,13 @@ ipcMain.handle('analyze-data', async (event, { data, indicators }) => {
   }
 });
 
-ipcMain.handle('save-analysis', async (event, { symbol, timeframe, analysis }) => {
+ipcMain.handle('save-analysis', async (event, { symbol, timeframe, analysis, userId }) => {
   try {
-    const { data, error } = await supabase
-      .from('analysis')
-      .insert({
-        symbol,
-        timeframe,
-        analysis,
-        created_at: new Date().toISOString(),
-        user_id: supabase.auth.user()?.id
-      });
-
-    if (error) throw error;
-    return data;
+    const { rows } = await pool.query(
+      'INSERT INTO analysis (symbol, timeframe, analysis, created_at, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [symbol, timeframe, analysis, new Date().toISOString(), userId]
+    );
+    return rows[0];
   } catch (error) {
     console.error('Erreur sauvegarde analyse:', error);
     throw error;
